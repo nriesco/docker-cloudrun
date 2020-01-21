@@ -33,11 +33,10 @@ gcloud auth login # first time only
 gcloud config set project $YOUR_PROJECT_NAME
 gcloud builds submit --tag gcr.io/$YOUR_PROJECT_NAME/docker-cloudrun
 gcloud run deploy docker-cloudrun --image gcr.io/$YOUR_PROJECT_NAME/docker-cloudrun \
+  --allow-unauthenticated \
   --platform managed \
   --region us-central1 \
   --set-env-vars=^::^NODE_ENV=testing
-Service name (docker-cloudrun):
-Allow unauthenticated invocations to [docker-cloudrun] (y/N)?  y #first time only!
 ```
 
 ## Run
